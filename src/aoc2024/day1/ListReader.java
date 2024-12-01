@@ -1,7 +1,7 @@
 package aoc2024.day1;
 
 import java.io.*;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListReader {
@@ -9,11 +9,11 @@ public class ListReader {
     private final boolean debug = false;
 
     public InputLists readLists() throws IOException {
-
-        try (BufferedReader listFileReader = new BufferedReader(new FileReader("input"))) {
+        var fileUri = ListReader.class.getResource("input");
+        try (BufferedReader listFileReader = new BufferedReader(new FileReader(fileUri.getFile()))) {
             var line = listFileReader.readLine();
-            List<Integer> left = new LinkedList<>();
-            List<Integer> right = new LinkedList<>();
+            List<Integer> left = new ArrayList<>();
+            List<Integer> right = new ArrayList<>();
             while (line != null) {
                 if (!line.equals(" ")) {
                     var normalizedLine = line.replaceAll("\\s+", " ");
@@ -30,7 +30,7 @@ public class ListReader {
             }
 
             if (debug) {
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter("input_right", false));) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("input_right", false))) {
                     right.forEach(integer -> {
                         try {
                             writer.write(String.valueOf(integer));
@@ -41,7 +41,7 @@ public class ListReader {
 
                     });
                 }
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter("input_left", false));) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("input_left", false))) {
                     left.forEach(integer -> {
                         try {
                             writer.write(String.valueOf(integer));

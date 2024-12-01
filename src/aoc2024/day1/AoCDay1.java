@@ -1,7 +1,6 @@
 package aoc2024.day1;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class AoCDay1 {
 
@@ -13,7 +12,7 @@ public class AoCDay1 {
             System.out.println("Total distance of list: " + listDistance);
             System.out.println("---------");
 
-            var similarityScore = new CalculateSimilarity().calculateSimilarity(inputLists);
+            var similarityScore = new SimilarityCalculation().calculateSimilarity(inputLists);
             System.out.println("2. ####");
             System.out.println("Total similarity score: " + similarityScore);
             System.out.println("#######");

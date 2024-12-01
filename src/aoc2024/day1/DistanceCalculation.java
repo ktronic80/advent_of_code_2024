@@ -1,7 +1,6 @@
 package aoc2024.day1;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DistanceCalculation {
 
@@ -15,11 +14,9 @@ public class DistanceCalculation {
         for (int i = 0; i < leftList.size(); ++i) {
             var leftValue = leftList.get(i);
             var rightValue = rightList.get(i);
-            System.out.print("left: " + leftValue + " right value: " + rightValue);
             var min = Math.min(leftValue, rightValue);
             var max = Math.max(leftValue, rightValue);
             var distance = max - min;
-            System.out.println(" Distance: " + distance);
             distances.add(distance);
         }
 
